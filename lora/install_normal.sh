@@ -18,7 +18,7 @@ RAK_GW_MODEL=`do_get_gw_model`
 LORA_SPI=`do_get_lora_spi`
 INSTALL_LTE=`do_get_gw_install_lte`
 
-mkdir /opt/ttn-gateway -p
+mkdir /opt/lora-gateway -p
 
 
 if [ "${RAK_GW_MODEL}" = "RAK2247" ]; then
@@ -86,24 +86,24 @@ fi
 
 
 if [ -d $LORA_DIR_TMP/lora_gateway ]; then
-    cp $LORA_DIR_TMP/lora_gateway /opt/ttn-gateway/ -rf
+    cp $LORA_DIR_TMP/lora_gateway /opt/lora-gateway/ -rf
 fi
-cp $LORA_DIR_TMP/packet_forwarder /opt/ttn-gateway/ -rf
+cp $LORA_DIR_TMP/packet_forwarder /opt/lora-gateway/ -rf
 
 
-cp ./update_gwid.sh /opt/ttn-gateway/packet_forwarder/lora_pkt_fwd/update_gwid.sh
-cp ./start.sh  /opt/ttn-gateway/packet_forwarder/lora_pkt_fwd/start.sh
-cp ./set_eui.sh  /opt/ttn-gateway/packet_forwarder/lora_pkt_fwd/set_eui.sh
-cp ttn-gateway.service /lib/systemd/system/ttn-gateway.service
-cp /opt/ttn-gateway/packet_forwarder/lora_pkt_fwd/global_conf/global_conf.eu_863_870.json \
-	/opt/ttn-gateway/packet_forwarder/lora_pkt_fwd/global_conf.json
+cp ./update_gwid.sh /opt/lora-gateway/packet_forwarder/lora_pkt_fwd/update_gwid.sh
+cp ./start.sh  /opt/lora-gateway/packet_forwarder/lora_pkt_fwd/start.sh
+cp ./set_eui.sh  /opt/lora-gateway/packet_forwarder/lora_pkt_fwd/set_eui.sh
+cp lora-gateway.service /lib/systemd/system/lora-gateway.service
+cp /opt/lora-gateway/packet_forwarder/lora_pkt_fwd/global_conf/global_conf.eu_863_870.json \
+	/opt/lora-gateway/packet_forwarder/lora_pkt_fwd/global_conf.json
 	
 rpi_model=`do_get_rpi_model`
 if [ $rpi_model -eq 3 ] || [ $rpi_model -eq 4 ]; then
     sed -i "s/^.*server_address.*$/\t\"server_address\": \"127.0.0.1\",/" \
-	/opt/ttn-gateway/packet_forwarder/lora_pkt_fwd/global_conf.json
+	/opt/lora-gateway/packet_forwarder/lora_pkt_fwd/global_conf.json
 fi
 
-systemctl enable ttn-gateway.service
-systemctl restart ttn-gateway.service
+systemctl enable lora-gateway.service
+systemctl restart lora-gateway.service
 
