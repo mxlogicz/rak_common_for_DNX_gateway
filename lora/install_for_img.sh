@@ -14,7 +14,7 @@ source $SCRIPT_COMMON_FILE
 
 mkdir -p /usr/local/rak/lora
 
-mkdir /opt/ttn-gateway -p
+mkdir /opt/lora-gateway -p
 
 pushd rak7243
 ./install.sh
@@ -71,7 +71,7 @@ cp rak2247_spi /usr/local/rak/lora/ -rf
 cp rak2287 /usr/local/rak/lora/ -rf
 cp rak5146 /usr/local/rak/lora/ -rf
 
-cp ttn-gateway.service /lib/systemd/system/ttn-gateway.service
+cp lora-gateway.service /lib/systemd/system/lora-gateway.service
 
-systemctl enable ttn-gateway.service
+systemctl enable lora-gateway.service
 
