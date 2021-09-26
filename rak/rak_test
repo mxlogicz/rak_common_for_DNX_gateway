@@ -3,4 +3,4 @@ if [ $UID != 0 ]; then
     echo "Operation not permitted. Forgot sudo?"
     exit 1
 fi
-systemctl stop ttn-gateway
+systemctl stop lora-gateway
