@@ -1,0 +1,17 @@
+[Unit]
+Description=The Lora Gateway for DNX
+
+[Service]
+WorkingDirectory=/opt/lora-gateway/packet_forwarder/lora_pkt_fwd/
+ExecStart=/opt/lora-gateway/packet_forwarder/lora_pkt_fwd/start.sh
+SyslogIdentifier=lora-gateway
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+
+
+
+
+
