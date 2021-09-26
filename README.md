@@ -5,7 +5,8 @@ Update:
 =========================================================================================
 
 This update is for building a LoRAWAN gateway on MOXA ARM based Computers. 
-
+ChangeLog 
+2021-06-26 changed files to lora-gateway
 =========================================================================================
 
 Original: 
