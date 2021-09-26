@@ -1,10 +1,10 @@
 [Unit]
-Description=The Things Network Gateway
+Description=The Lora Gateway for DNX
 
 [Service]
-WorkingDirectory=/opt/ttn-gateway/packet_forwarder/lora_pkt_fwd/
-ExecStart=/opt/ttn-gateway/packet_forwarder/lora_pkt_fwd/start.sh
-SyslogIdentifier=ttn-gateway
+WorkingDirectory=/opt/lora-gateway/packet_forwarder/lora_pkt_fwd/
+ExecStart=/opt/lora-gateway/packet_forwarder/lora_pkt_fwd/start.sh
+SyslogIdentifier=lora-gateway
 Restart=always
 RestartSec=5
 
