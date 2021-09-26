@@ -1,7 +1,7 @@
 #!/bin/bash
-cd /opt/ttn-gateway/lora_gateway/util_pkt_logger
+cd /opt/lora-gateway/lora_gateway/util_pkt_logger
 
-cp /opt/ttn-gateway/packet_forwarder/lora_pkt_fwd/*.json .
+cp /opt/lora-gateway/packet_forwarder/lora_pkt_fwd/*.json .
 
 rm *.csv -rf
 
