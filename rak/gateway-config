@@ -5,7 +5,7 @@ export NCURSES_NO_UTF8_ACS=1
 source /usr/local/rak/shell_script/rak_common.sh
 
 GATEWAY_CONFIG_INFO=/usr/local/rak/gateway-config-info.json
-LORA_PKT_PATH=/opt/ttn-gateway/packet_forwarder/lora_pkt_fwd
+LORA_PKT_PATH=/opt/lora-gateway/packet_forwarder/lora_pkt_fwd
 
 rpi_model=`do_get_rpi_model`
 INSTALL_CHIRPSTACK=`do_get_gw_install_chirpstack`
@@ -64,8 +64,8 @@ do_setup_admin_password() {
 }
 
 do_restart_packet_forwarder() {
-    systemctl stop ttn-gateway
-    systemctl start ttn-gateway
+    systemctl stop lora-gateway
+    systemctl start lora-gateway
     RET=$?
     if [ $RET -eq 0 ]; then
         dialog --title "Restart packet-forwarder" --msgbox "The packet-forwarder has been restarted." 5 60
