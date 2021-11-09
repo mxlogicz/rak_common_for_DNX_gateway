@@ -13,7 +13,8 @@ if [ $UID != 0 ]; then
     exit 1
 fi
 
-systemctl disable hciuart
+# hciuart is only for Rasp disbling it 
+# systemctl disable hciuart
 
 apt install git ppp dialog jq minicom monit i2c-tools -y
 
