@@ -122,7 +122,7 @@ popd
 pushd lora
 GWID=$(grep "gateway_ID" /opt/lora-gateway/packet_forwarder/lora_pkt_fwd/global_conf.json|awk -F: '{print $2}'|awk -F\" '{print $2}')
 
-if [[ echo $GWID == "0000000000000000" ]]; then 
+if [ $GWID == "0000000000000000" ]; then 
     rak2247_usb/packet_forwarder/lora_pkt_fwd/update_gwid.sh  /opt/lora-gateway/packet_forwarder/lora_pkt_fwd/global_conf.json
 fi 
 GWID=$(grep "gateway_ID" /opt/lora-gateway/packet_forwarder/lora_pkt_fwd/global_conf.json|awk -F: '{print $2}'|awk -F\" '{print $2}')
