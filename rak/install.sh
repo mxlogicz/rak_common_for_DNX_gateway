@@ -16,7 +16,14 @@ fi
 # hciuart is only for Rasp disbling it 
 # systemctl disable hciuart
 
-apt install git ppp dialog jq minicom monit i2c-tools -y
+if [ -f /etc/rc.local ] ; then 
+    echo "/etc/rc.local exists"; 
+else touch /etc/rc.local &&
+     echo "/etc/rc.local created";
+fi
+
+
+apt install git ppp dialog jq minicom monit i2c-tools -y 
 
 cp gateway-config /usr/bin/
 cp gateway-version /usr/bin/
