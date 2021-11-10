@@ -21,7 +21,7 @@ if [ ! -n "$linenum" ]; then
         set -a line_array
         line_index=0
         for linenum in `sed -n '/exit 0/=' /etc/rc.local`; do line_array[line_index]=$linenum; let line_index=line_index+1; done
-        sed -i "${line_array[${#line_array[*]} - 1]}i/usr/local/rak/bin/rak_script" /etc/rc.local
+#        sed -i "${line_array[${#line_array[*]} - 1]}i/usr/local/rak/bin/rak_script" /etc/rc.local
 fi
 
 # set ntp & UTC
@@ -31,8 +31,8 @@ timedatectl set-ntp true
 cp config.txt /boot/config.txt
 #removed change motd
 
-CMD_STR=`cat /boot/cmdline.txt`
-echo "$CMD_STR modules-load=dwc2,g_ether" > /boot/cmdline.txt
+# CMD_STR=`cat /boot/cmdline.txt`
+# echo "$CMD_STR modules-load=dwc2,g_ether" > /boot/cmdline.txt
 
 ./set_ip.sh $img
 
